@@ -2,6 +2,7 @@ package com.bwie.manager.controller;
 
 import com.bwie.entity.Product;
 import com.bwie.manager.service.ProductService;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @ApiOperation(value = "创建产品",notes = "根据对应业务规则添加响应的产品")
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Product addProduct(@RequestBody Product product) {
         log.info("创建产品，参数：{}", product);
@@ -36,6 +38,7 @@ public class ProductController {
      * @param id 产品编号
      * @return 返回对应产品或Null
      */
+    @ApiOperation(value = "单个商品查询", notes = "根据ip进行查询")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Product findOne(@PathVariable String id) {
         log.info("查询单个产品，id={}", id);

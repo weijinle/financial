@@ -1,6 +1,7 @@
 package com.bwie.entity;
 
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
@@ -34,6 +35,7 @@ public class Product implements Serializable {
     /**
      * @see com.bwie.entity.enums.ProductStatus
      */
+    @ApiModelProperty(value = "产品状态", dataType = "com.bwie.entity.enums.ProductStatus")
     private String status;
 
     private String memo;
